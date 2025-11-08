@@ -11,7 +11,9 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_C_STANDARD 99)
 
 include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 include(CTest)
+
 enable_testing()
 
 add_compile_options(-Wall -Wextra -Wno-unused-parameter)
@@ -21,3 +23,4 @@ install(FILES README.md DESTINATION share/doc/${PROJECT_NAME})
 
 add_subdirectory(wildmatch)
 add_subdirectory(tests)
+add_subdirectory(cmake)
