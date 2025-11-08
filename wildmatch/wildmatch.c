@@ -107,6 +107,8 @@ int wildmatch(const char *pattern, const char *string, int flags)
                 if (c == '/' &&
                         wildmatch(pattern+1, string, flags) == WM_MATCH) {
                     return WM_MATCH;
+                } else if (c == 0 && *string == '/' && wildmatch("*", string+1, flags) == WM_MATCH) {
+                    return WM_MATCH;
                 }
             } else {
                 /* Collapse multiple stars. */
